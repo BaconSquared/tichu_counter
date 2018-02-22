@@ -1,0 +1,118 @@
+# ScreenManagement:
+#     HomeScreen:
+#     ScoreScreen:
+
+ScreenManager:
+    HomeScreen:
+    ScoreScreen:
+
+<HomeScreen>:
+    name:"home"
+    FloatLayout:
+        Button:
+            text: "New Game"
+            font_size: 30
+            size_hint: 0.3,0.2
+            pos_hint: {"center_x":0.5, "center_y":0.7}
+            background_color: (0,1,0,1)
+            on_release:
+                app.root.current = "score"
+                app.root.transition.direction = "left"
+        Button:
+            text: "Quit"
+            font_size: 30
+            size_hint: 0.3,0.2
+            pos_hint: {"center_x":0.5, "center_y":0.3}
+            background_color: (1,0,0,1)
+            on_release: app.get_running_app().stop()
+
+<ScoreScreen>:
+    name:"score"
+    BoxLayout:
+        orientation: 'vertical'
+        #spacing: 10
+        GridLayout:
+            size_hint: 1, .2
+            cols: 3
+            Label:
+                text: "Score 1"
+            Label:
+                text: "       "
+            Label:
+                text: "Score 2"
+        GridLayout:
+            cols: 3
+            Label:
+                text: "45"
+            Label:
+                text: "Hand 1"
+            Label:
+                text: "55"
+        BoxLayout:
+            size_hint: 1, .2
+            orientation: 'horizontal'
+            #spacing: 10
+            TextInput:
+                #text: "Enter Score 1"
+            Button:
+                text: "Go"
+                size_hint: .25, 1
+            TextInput:
+                #text: "Enter Score 2"
+        BoxLayout:
+            size_hint: 1, .4
+            orientation: 'horizontal'
+            #spacing: 10
+            Button:
+                text: "+100"
+            GridLayout:
+                rows: 2
+                cols: 3
+                Button:
+                    text: "1"
+                Button:
+                    text: "2"
+                Button:
+                    text: "3"
+                Button:
+                    text: "4"
+                Button:
+                    text: "5"
+                Button:
+                    text: "6"
+            Button:
+                text: "+100"
+        BoxLayout:
+            size_hint: 1, .4
+            orientation: 'horizontal'
+            #spacing: 10
+            Button:
+                text: "-100"
+            GridLayout:
+                rows: 2
+                cols: 3
+                Button:
+                    text: "7"
+                Button:
+                    text: "8"
+                Button:
+                    text: "9"
+                Button:
+                    text: "-"
+                Button:
+                    text: "0"
+                Button:
+                    text: "Del"
+            Button:
+                text: "-100"
+
+    # FloatLayout:
+    #     Button:
+    #         text: "Go Back"
+    #         font_size: 30
+    #         size_hint: 0.3,0.2
+    #         pos_hint: {"center_x":0.5, "center_y":0.5}
+    #         background_color: (0,1,0,1)
+    #         on_release:
+    #             app.root.current = "home"
+    #             app.root.transition.direction = "right"
